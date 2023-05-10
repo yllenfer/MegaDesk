@@ -1,4 +1,6 @@
-﻿namespace MegaDesk
+﻿using System.Security.Cryptography;
+
+namespace MegaDesk
 {
     partial class DisplayQuote
     {
@@ -6,6 +8,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        
 
         /// <summary>
         /// Clean up any resources being used.
@@ -29,25 +32,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisplayQuote));
-            this.label1 = new System.Windows.Forms.Label();
+            this.outputlable = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // outputlable
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(218, 179);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Display Quote";
+            this.outputlable.AutoSize = true;
+            this.outputlable.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outputlable.Location = new System.Drawing.Point(218, 179);
+            this.outputlable.Name = "outputlable";
+            this.outputlable.Size = new System.Drawing.Size(135, 25);
+            this.outputlable.TabIndex = 0;
+            this.outputlable.Text = "Display Quote";
             // 
             // DisplayQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 444);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.outputlable);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DisplayQuote";
             this.Text = "Display Quote";
@@ -58,6 +61,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label outputlable;
+
+       
+
     }
 }

@@ -45,12 +45,13 @@ namespace MegaDesk
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
-            this.deskSizeInput = new System.Windows.Forms.TextBox();
-            this.depthInput = new System.Windows.Forms.TextBox();
+            this.widthTextBox = new System.Windows.Forms.TextBox();
+            this.depthTextBox = new System.Windows.Forms.TextBox();
             this.drawersInput = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.surfaceInput = new System.Windows.Forms.ComboBox();
+            this.rushOrderInput = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.submitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,21 +138,21 @@ namespace MegaDesk
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.goback_Click);
             // 
-            // deskSizeInput
+            // widthTextBox
             // 
-            this.deskSizeInput.Location = new System.Drawing.Point(331, 133);
-            this.deskSizeInput.Name = "deskSizeInput";
-            this.deskSizeInput.Size = new System.Drawing.Size(100, 20);
-            this.deskSizeInput.TabIndex = 10;
-            this.deskSizeInput.Click += new System.EventHandler(this.deskSizeInput_TextChanged);
+            this.widthTextBox.Location = new System.Drawing.Point(331, 133);
+            this.widthTextBox.Name = "widthTextBox";
+            this.widthTextBox.Size = new System.Drawing.Size(100, 20);
+            this.widthTextBox.TabIndex = 10;
+            this.widthTextBox.Click += new System.EventHandler(this.deskSizeInput_TextChanged);
             // 
-            // depthInput
+            // depthTextBox
             // 
-            this.depthInput.Location = new System.Drawing.Point(331, 180);
-            this.depthInput.Name = "depthInput";
-            this.depthInput.Size = new System.Drawing.Size(100, 20);
-            this.depthInput.TabIndex = 11;
-            this.depthInput.Click += new System.EventHandler(this.deskDepthInput_TextChanged);
+            this.depthTextBox.Location = new System.Drawing.Point(331, 180);
+            this.depthTextBox.Name = "depthTextBox";
+            this.depthTextBox.Size = new System.Drawing.Size(100, 20);
+            this.depthTextBox.TabIndex = 11;
+            this.depthTextBox.Click += new System.EventHandler(this.deskDepthInput_TextChanged);
             // 
             // drawersInput
             // 
@@ -161,36 +162,47 @@ namespace MegaDesk
             this.drawersInput.TabIndex = 12;
             this.drawersInput.Click += new System.EventHandler(this.deskDrawers_TextChanged);
             // 
-            // comboBox1
+            // surfaceInput
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(331, 281);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 13;
-            this.comboBox1.Click += new System.EventHandler(this.AddQuote_Load);
+            this.surfaceInput.FormattingEnabled = true;
+            this.surfaceInput.Location = new System.Drawing.Point(331, 281);
+            this.surfaceInput.Name = "surfaceInput";
+            this.surfaceInput.Size = new System.Drawing.Size(100, 21);
+            this.surfaceInput.TabIndex = 13;
+            this.surfaceInput.Click += new System.EventHandler(this.AddQuote_Load);
             // 
-            // textBox4
+            // rushOrderInput
             // 
-            this.textBox4.Location = new System.Drawing.Point(331, 330);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 14;
+            this.rushOrderInput.Location = new System.Drawing.Point(331, 330);
+            this.rushOrderInput.Name = "rushOrderInput";
+            this.rushOrderInput.Size = new System.Drawing.Size(100, 20);
+            this.rushOrderInput.TabIndex = 14;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // submitButton
+            // 
+            this.submitButton.Location = new System.Drawing.Point(182, 363);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(149, 48);
+            this.submitButton.TabIndex = 15;
+            this.submitButton.Text = "Submit";
+            this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 423);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.submitButton);
+            this.Controls.Add(this.rushOrderInput);
+            this.Controls.Add(this.surfaceInput);
             this.Controls.Add(this.drawersInput);
-            this.Controls.Add(this.depthInput);
-            this.Controls.Add(this.deskSizeInput);
+            this.Controls.Add(this.depthTextBox);
+            this.Controls.Add(this.widthTextBox);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -210,107 +222,25 @@ namespace MegaDesk
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button backButton;
+            private System.Windows.Forms.Label label1;
+            private System.Windows.Forms.Label label2;
+            private System.Windows.Forms.Label label3;
+            private System.Windows.Forms.Label label4;
+            private System.Windows.Forms.Label label5;
+            private System.Windows.Forms.Label label6;
+            private System.Windows.Forms.Label label7;
+            private System.Windows.Forms.Button backButton;
 
 
-        private void deskSizeInput_TextChanged(object sender, EventArgs e)
-        {
-            int size;
-            if (int.TryParse(deskSizeInput.Text, out size))
-            {
-                if (Width < Desk.MINWIDTH || Width > Desk.MAXWIDTH)
-                {
-                    deskSizeInput.Text = String.Empty;
-                    deskSizeInput.Focus();
-                    MessageBox.Show("Hello, Width must between 24 and 96 inches");
-                }
-            }
-        }
+      
 
 
-        private void deskDepthInput_TextChanged(object sender, EventArgs e)
-        {
-            int size;
-            if (int.TryParse(depthInput.Text, out size))
-            {
-                if (Width < Desk.MINDEPTH || Width > Desk.MAXDEPTH)
-                {
-                    depthInput.Text = String.Empty;
-                    depthInput.Focus();
-                    MessageBox.Show("Hello, Depth must between 12 and 48 inches");
-                }
-            }
-        }
-
-
-        private void deskMaterialInput_TextChanged(object sender, EventArgs e)
-        {
-            int size;
-            if (int.TryParse(depthInput.Text, out size))
-            {
-                if (Width < Desk.MINDEPTH || Width > Desk.MAXDEPTH)
-                {
-                    depthInput.Text = String.Empty;
-                    depthInput.Focus();
-                    MessageBox.Show("Hello, Depth must between 12 and 48 inches");
-                }
-            }
-        }
-
-
-        private void AddQuote_Load(object sender, EventArgs e)
-        {
-            string[] materials = Enum.GetNames(typeof(Desk.SurfaceMaterial));
-            comboBox1.Items.AddRange(materials);
-            //comboBox1.SelectedIndex = 0;
-            //TODO: There's an error here
-        }
-
-
-     
-
-
-
-
-
-        private void deskDrawers_TextChanged(object sender, EventArgs e)
-        {
-            int size;
-            if (int.TryParse(depthInput.Text, out size))
-            {
-                if (Width < Desk.MINDRAWERS || Width > Desk.MAXDRAWERS)
-                {
-                    depthInput.Text = String.Empty;
-                    depthInput.Focus();
-                    MessageBox.Show("Hello, Drawers must between 0 and 7 inches");
-                }
-            }
-        }
-
-
-
-
-
-        private void goback_Click(object sender, EventArgs e)
-        {
-            
-            Hide();
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.Tag = this;
-            mainMenu.Show(this);
-        }
-        private TextBox deskSizeInput;
-        private TextBox depthInput;
+        private TextBox widthTextBox;
+        private TextBox depthTextBox;
         private TextBox drawersInput;
-        private ComboBox comboBox1;
-        private TextBox textBox4;
+        private ComboBox surfaceInput;
+        private TextBox rushOrderInput;
         private ErrorProvider errorProvider1;
+        private Button submitButton;
     }
 }

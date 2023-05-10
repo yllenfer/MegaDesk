@@ -116,39 +116,7 @@ namespace MegaDesk
         private System.Windows.Forms.PictureBox pictureBox1;
 
 
-        private void addquote_Click(object sender, EventArgs e)
-        {
-            AddQuote addQuote = new AddQuote();
-            addQuote.Tag = this;
-            addQuote.Show(this);
-            Hide();
-        }
-
-
-        private void displayquote_Click(object sender, EventArgs e)
-        {
-            DisplayQuote displayQuote = new DisplayQuote();
-            displayQuote.Tag = this;
-            displayQuote.Show(this);
-            Hide();
-        }
-
-
-        private void displaysearch_Click(object sender, EventArgs e)
-        {
-            SearchQuotes searchQuotes = new SearchQuotes();
-            searchQuotes.Tag = this;
-            searchQuotes.Show(this);
-            Hide();
-        }
-
-
-        private void exit_Click(object sender, EventArgs e)
-        {
-
-            Hide();
-           
-        }
+      
 
 
 

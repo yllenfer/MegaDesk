@@ -12,9 +12,24 @@ namespace MegaDesk
 {
     public partial class DisplayQuote : Form
     {
-        public DisplayQuote()
+
+        private MainMenu _mainMenu;
+        private DeskQuote deskQuote;
+        private float quoteTotal;
+        private MainMenu mainMenu;
+
+        internal DisplayQuote(DeskQuote deskQuote, float quoteTotal, MainMenu mainMenu)
         {
             InitializeComponent();
+            _mainMenu = mainMenu;
+            this.deskQuote = deskQuote;
+            this.quoteTotal = quoteTotal;
+
+            string quoteDate = "Does this work?";
+
+            outputlable.Text = quoteDate;
+
+
         }
     }
 }
