@@ -42,26 +42,26 @@ namespace MegaDesk
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.widthTextBox = new System.Windows.Forms.TextBox();
             this.depthTextBox = new System.Windows.Forms.TextBox();
             this.drawersInput = new System.Windows.Forms.TextBox();
             this.surfaceInput = new System.Windows.Forms.ComboBox();
-            this.rushOrderInput = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.submitButton = new System.Windows.Forms.Button();
+            this.rushOrderInput = new System.Windows.Forms.ComboBox();
+            this.customerName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 71);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(30, 90);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 25);
+            this.label1.Size = new System.Drawing.Size(129, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Customer\'s Name";
             // 
@@ -104,18 +104,6 @@ namespace MegaDesk
             this.label5.Size = new System.Drawing.Size(115, 18);
             this.label5.TabIndex = 4;
             this.label5.Text = "Surface Material";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(326, 71);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(143, 25);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Ylle Fernandez";
             // 
             // label7
             // 
@@ -164,19 +152,13 @@ namespace MegaDesk
             // 
             // surfaceInput
             // 
+            this.surfaceInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.surfaceInput.FormattingEnabled = true;
             this.surfaceInput.Location = new System.Drawing.Point(331, 281);
             this.surfaceInput.Name = "surfaceInput";
             this.surfaceInput.Size = new System.Drawing.Size(100, 21);
             this.surfaceInput.TabIndex = 13;
             this.surfaceInput.Click += new System.EventHandler(this.AddQuote_Load);
-            // 
-            // rushOrderInput
-            // 
-            this.rushOrderInput.Location = new System.Drawing.Point(331, 330);
-            this.rushOrderInput.Name = "rushOrderInput";
-            this.rushOrderInput.Size = new System.Drawing.Size(100, 20);
-            this.rushOrderInput.TabIndex = 14;
             // 
             // errorProvider1
             // 
@@ -192,20 +174,36 @@ namespace MegaDesk
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
+            // rushOrderInput
+            // 
+            this.rushOrderInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.rushOrderInput.FormattingEnabled = true;
+            this.rushOrderInput.Location = new System.Drawing.Point(331, 329);
+            this.rushOrderInput.Name = "rushOrderInput";
+            this.rushOrderInput.Size = new System.Drawing.Size(100, 21);
+            this.rushOrderInput.TabIndex = 16;
+            // 
+            // customerName
+            // 
+            this.customerName.Location = new System.Drawing.Point(331, 91);
+            this.customerName.Name = "customerName";
+            this.customerName.Size = new System.Drawing.Size(100, 20);
+            this.customerName.TabIndex = 17;
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 423);
-            this.Controls.Add(this.submitButton);
+            this.Controls.Add(this.customerName);
             this.Controls.Add(this.rushOrderInput);
+            this.Controls.Add(this.submitButton);
             this.Controls.Add(this.surfaceInput);
             this.Controls.Add(this.drawersInput);
             this.Controls.Add(this.depthTextBox);
             this.Controls.Add(this.widthTextBox);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -227,7 +225,6 @@ namespace MegaDesk
             private System.Windows.Forms.Label label3;
             private System.Windows.Forms.Label label4;
             private System.Windows.Forms.Label label5;
-            private System.Windows.Forms.Label label6;
             private System.Windows.Forms.Label label7;
             private System.Windows.Forms.Button backButton;
 
@@ -239,8 +236,9 @@ namespace MegaDesk
         private TextBox depthTextBox;
         private TextBox drawersInput;
         private ComboBox surfaceInput;
-        private TextBox rushOrderInput;
         private ErrorProvider errorProvider1;
         private Button submitButton;
+        private ComboBox rushOrderInput;
+        private TextBox customerName;
     }
 }

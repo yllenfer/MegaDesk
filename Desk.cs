@@ -10,11 +10,13 @@ namespace MegaDesk
      class Desk
 
     {
-
+        public string Name { get; set; }
         public int Width { get; set; }
         public int Depth { get; set; }
         public int Base { get; set; }
         public int Drawers { get; set; }
+
+        public SurfaceMaterial Material { get; set; }
 
         public const int MINWIDTH = 24;
         public const int MAXWIDTH = 96;
@@ -41,13 +43,13 @@ namespace MegaDesk
         }
 
 
-        protected Desk(int widthValue, int depthValue, int drawersValue) {
+        //protected Desk(int widthValue, int depthValue, int drawersValue) {
         
-            Width = widthValue;
-            Depth = depthValue;
-            Drawers = drawersValue;
+        //    Width = widthValue;
+        //    Depth = depthValue;
+        //    Drawers = drawersValue;
         
-        }
+        //}
 
         /// <summary>
         /// The main entry point for the application.

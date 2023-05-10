@@ -18,6 +18,11 @@ namespace MegaDesk
         public AddQuote()
         {
             InitializeComponent();
+            surfaceInput.DataSource = Enum.GetValues(typeof(Desk.SurfaceMaterial));
+            rushOrderInput.Items.Add("3");
+            rushOrderInput.Items.Add("5");
+            rushOrderInput.Items.Add("7");
+
         }
 
         private void submitButton_Click(object sender, EventArgs e)
@@ -25,11 +30,30 @@ namespace MegaDesk
             int width = int.Parse(widthTextBox.Text);
             int depth = int.Parse(depthTextBox.Text);
             int drawers = int.Parse(drawersInput.Text);
-            DeskQuote addQuote = new DeskQuote(width, depth, drawers);
-            MessageBox.Show(addQuote.Depth.ToString());
+            string name = customerName.Text;
+            Desk.SurfaceMaterial surfaceMaterial = (Desk.SurfaceMaterial)surfaceInput.SelectedItem;
+            //Change to combobox
+            string rushOrder = (string)rushOrderInput.SelectedItem;
+            string date =  DateTime.Now.ToString();
 
+            //MessageBox.Show(addQuote.Depth.ToString());
 
+            Desk desk = new Desk
+            {   Name = name,
+                Width = width,
+                Depth = depth,
+                Drawers = drawers,
+                Material = surfaceMaterial
+            };
 
+            DeskQuote deskQuote = new DeskQuote(date, rushOrder, desk);
+
+            float quoteTotal = deskQuote.CalQuoteTotal();
+            MainMenu mainMenu = new MainMenu();
+            DisplayQuote displayQuote = new DisplayQuote(deskQuote, quoteTotal, mainMenu, "MM/dd/yyyy");
+
+            displayQuote.Show();
+            Hide();
 
 
         }
@@ -82,9 +106,9 @@ namespace MegaDesk
         //Getting the surface materials from Enum
         private void AddQuote_Load(object sender, EventArgs e)
         {
-            surfaceInput.Items.Clear(); 
-            string[] materials = Enum.GetNames(typeof(Desk.SurfaceMaterial));
-            surfaceInput.Items.AddRange(materials);
+            //surfaceInput.Items.Clear(); 
+            //string[] materials = Enum.GetNames(typeof(Desk.SurfaceMaterial));
+            //surfaceInput.Items.AddRange(materials);
         }
 
 
@@ -121,12 +145,7 @@ namespace MegaDesk
             mainMenu.Show(this);
         }
 
-
-
-
-
-
-
+       
     }
 }
 
