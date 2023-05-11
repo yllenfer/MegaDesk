@@ -43,13 +43,7 @@ namespace MegaDesk
         }
 
 
-        //protected Desk(int widthValue, int depthValue, int drawersValue) {
-        
-        //    Width = widthValue;
-        //    Depth = depthValue;
-        //    Drawers = drawersValue;
-        
-        //}
+ 
 
         /// <summary>
         /// The main entry point for the application.

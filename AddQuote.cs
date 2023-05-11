@@ -46,9 +46,9 @@ namespace MegaDesk
                 Material = surfaceMaterial
             };
 
-            DeskQuote deskQuote = new DeskQuote(date, rushOrder, desk);
+            DeskQuote deskQuote = new DeskQuote(date, rushOrder, drawers, surfaceMaterial, desk);
 
-            float quoteTotal = deskQuote.CalQuoteTotal();
+            float quoteTotal = deskQuote.CalcQuoteTotal();
             MainMenu mainMenu = new MainMenu();
             DisplayQuote displayQuote = new DisplayQuote(deskQuote, quoteTotal, mainMenu, "MM/dd/yyyy");
 
@@ -57,15 +57,6 @@ namespace MegaDesk
 
 
         }
-
-
-
-
-       
-
-
-
-
 
 
 
@@ -106,15 +97,8 @@ namespace MegaDesk
         //Getting the surface materials from Enum
         private void AddQuote_Load(object sender, EventArgs e)
         {
-            //surfaceInput.Items.Clear(); 
-            //string[] materials = Enum.GetNames(typeof(Desk.SurfaceMaterial));
-            //surfaceInput.Items.AddRange(materials);
+            
         }
-
-
-
-
-
 
 
 

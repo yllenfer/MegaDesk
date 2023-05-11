@@ -39,7 +39,7 @@ namespace MegaDesk
             // 
             this.outputlable.AutoSize = true;
             this.outputlable.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.outputlable.Location = new System.Drawing.Point(218, 179);
+            this.outputlable.Location = new System.Drawing.Point(182, 183);
             this.outputlable.Name = "outputlable";
             this.outputlable.Size = new System.Drawing.Size(135, 25);
             this.outputlable.TabIndex = 0;

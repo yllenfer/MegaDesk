@@ -18,23 +18,24 @@ namespace MegaDesk
         private DeskQuote deskQuote;
         private float quoteTotal;
         private MainMenu mainMenu;
-        private string rushOrder;
+       
 
-        internal DisplayQuote(DeskQuote deskQuote, float quoteTotal, MainMenu mainMenu, string v, string rushOrder)
+        internal DisplayQuote(DeskQuote deskQuote, float quoteTotal, MainMenu mainMenu, string v)
         {
             InitializeComponent();
             _mainMenu = mainMenu;
             this.deskQuote = deskQuote;
             this.quoteTotal = quoteTotal;
-            this.rushOrder  = rushOrder;
 
-            string quoteDate = "Desktop Material " + deskQuote.Desk.Material +
+
+            string quoteDate =
+                "\nName: " + deskQuote.Desk.Name +
+                "\nDesktop Material:  " + deskQuote.Desk.Material +
                 "\nRush Order: " + deskQuote.RushOrder +
-                "\nRush Order: " + deskQuote.RushOrder + 
-                "\nName: " + deskQuote.Desk.Name + 
-            "\nDate: " + deskQuote.Date;
+                "\nTotal: $" + deskQuote.CalcQuoteTotal() +  
+                "\nDate: " + deskQuote.Date;
 
-            ;
+            
 
             outputlable.Text = quoteDate;
 
