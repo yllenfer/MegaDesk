@@ -99,7 +99,10 @@ namespace MegaDesk
             this.Controls.Add(this.searchQuote);
             this.Controls.Add(this.viewQuote);
             this.Controls.Add(this.addQuote);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainMenu";
             this.Text = "Main Menu";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

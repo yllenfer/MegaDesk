@@ -13,7 +13,7 @@ using static MegaDesk.Desk;
 
 namespace MegaDesk
 {
-    internal class DeskQuote
+     class DeskQuote
     {
 
         private int area;
@@ -120,6 +120,10 @@ namespace MegaDesk
                             rushOrderCost = 40.0f;
                         }
                         break;
+                    case "14":
+                        rushOrderCost = 0;
+                        break;
+
                 }
             }
 
@@ -128,4 +132,8 @@ namespace MegaDesk
             return quoteTotal;
         }
     }
+
+    //TODO: Create GetOrder method
+
+
 }

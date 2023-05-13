@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +36,6 @@ namespace MegaDesk
                 "\nTotal: $" + deskQuote.CalcQuoteTotal() +  
                 "\nDate: " + deskQuote.Date;
 
-            
 
             outputlable.Text = quoteDate;
 

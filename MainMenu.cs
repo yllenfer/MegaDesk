@@ -17,14 +17,6 @@ namespace MegaDesk
             InitializeComponent();
 
 
-
-
-
-
-
-
-
-
         }
 
         private void addquote_Click(object sender, EventArgs e)
@@ -38,9 +30,6 @@ namespace MegaDesk
 
         private void displayquote_Click(object sender, EventArgs e)
         {
-            //DisplayQuote displayQuote = new DisplayQuote();
-            //displayQuote.Tag = this;
-            //displayQuote.Show(this);
             Hide();
         }
 
@@ -60,10 +49,6 @@ namespace MegaDesk
             Hide();
 
         }
-
-
-
-
 
 
     }

@@ -48,11 +48,13 @@ namespace MegaDesk
             this.depthTextBox = new System.Windows.Forms.TextBox();
             this.drawersInput = new System.Windows.Forms.TextBox();
             this.surfaceInput = new System.Windows.Forms.ComboBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorWidth = new System.Windows.Forms.ErrorProvider(this.components);
             this.submitButton = new System.Windows.Forms.Button();
             this.rushOrderInput = new System.Windows.Forms.ComboBox();
             this.customerName = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.warningLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorWidth)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -128,45 +130,48 @@ namespace MegaDesk
             // 
             // widthTextBox
             // 
-            this.widthTextBox.Location = new System.Drawing.Point(331, 133);
+            this.widthTextBox.Location = new System.Drawing.Point(386, 130);
             this.widthTextBox.Name = "widthTextBox";
             this.widthTextBox.Size = new System.Drawing.Size(100, 20);
             this.widthTextBox.TabIndex = 10;
-            this.widthTextBox.Click += new System.EventHandler(this.deskSizeInput_TextChanged);
+            this.widthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.widthTextBox_Validating);
+            this.widthTextBox.Validated += new System.EventHandler(this.widthTextBox_Validated);
             // 
             // depthTextBox
             // 
-            this.depthTextBox.Location = new System.Drawing.Point(331, 180);
+            this.depthTextBox.Location = new System.Drawing.Point(386, 177);
             this.depthTextBox.Name = "depthTextBox";
             this.depthTextBox.Size = new System.Drawing.Size(100, 20);
             this.depthTextBox.TabIndex = 11;
-            this.depthTextBox.Click += new System.EventHandler(this.deskDepthInput_TextChanged);
+            this.depthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.depthTextBox_Validating);
+            this.depthTextBox.Validated += new System.EventHandler(this.depthTextBox_Validated);
             // 
             // drawersInput
             // 
-            this.drawersInput.Location = new System.Drawing.Point(331, 230);
+            this.drawersInput.Location = new System.Drawing.Point(386, 227);
             this.drawersInput.Name = "drawersInput";
             this.drawersInput.Size = new System.Drawing.Size(100, 20);
             this.drawersInput.TabIndex = 12;
-            this.drawersInput.Click += new System.EventHandler(this.deskDrawers_TextChanged);
+            this.drawersInput.Validating += new System.ComponentModel.CancelEventHandler(this.drawersInput_Validating);
+            this.drawersInput.Validated += new System.EventHandler(this.drawersInput_Validated);
             // 
             // surfaceInput
             // 
             this.surfaceInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.surfaceInput.FormattingEnabled = true;
-            this.surfaceInput.Location = new System.Drawing.Point(331, 281);
+            this.surfaceInput.Location = new System.Drawing.Point(386, 278);
             this.surfaceInput.Name = "surfaceInput";
             this.surfaceInput.Size = new System.Drawing.Size(100, 21);
             this.surfaceInput.TabIndex = 13;
             this.surfaceInput.Click += new System.EventHandler(this.AddQuote_Load);
             // 
-            // errorProvider1
+            // errorWidth
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.errorWidth.ContainerControl = this;
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(182, 363);
+            this.submitButton.Location = new System.Drawing.Point(202, 363);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(149, 48);
             this.submitButton.TabIndex = 15;
@@ -178,23 +183,33 @@ namespace MegaDesk
             // 
             this.rushOrderInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.rushOrderInput.FormattingEnabled = true;
-            this.rushOrderInput.Location = new System.Drawing.Point(331, 329);
+            this.rushOrderInput.Location = new System.Drawing.Point(386, 326);
             this.rushOrderInput.Name = "rushOrderInput";
             this.rushOrderInput.Size = new System.Drawing.Size(100, 21);
             this.rushOrderInput.TabIndex = 16;
             // 
             // customerName
             // 
-            this.customerName.Location = new System.Drawing.Point(331, 91);
+            this.customerName.Location = new System.Drawing.Point(386, 88);
             this.customerName.Name = "customerName";
             this.customerName.Size = new System.Drawing.Size(100, 20);
             this.customerName.TabIndex = 17;
+            // 
+            // warningLabel
+            // 
+            this.warningLabel.AutoSize = true;
+            this.warningLabel.ForeColor = System.Drawing.Color.Salmon;
+            this.warningLabel.Location = new System.Drawing.Point(285, 42);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(0, 13);
+            this.warningLabel.TabIndex = 18;
             // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 423);
+            this.Controls.Add(this.warningLabel);
             this.Controls.Add(this.customerName);
             this.Controls.Add(this.rushOrderInput);
             this.Controls.Add(this.submitButton);
@@ -209,10 +224,13 @@ namespace MegaDesk
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddQuote";
             this.Text = "Add Quote";
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorWidth)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,9 +254,11 @@ namespace MegaDesk
         private TextBox depthTextBox;
         private TextBox drawersInput;
         private ComboBox surfaceInput;
-        private ErrorProvider errorProvider1;
+        private ErrorProvider errorWidth;
         private Button submitButton;
         private ComboBox rushOrderInput;
         private TextBox customerName;
+        private Label warningLabel;
+        private Timer timer1;
     }
 }
