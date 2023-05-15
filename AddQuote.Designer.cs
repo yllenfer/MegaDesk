@@ -182,7 +182,7 @@ namespace MegaDesk
             this.customerName.Location = new System.Drawing.Point(386, 88);
             this.customerName.Name = "customerName";
             this.customerName.Size = new System.Drawing.Size(100, 20);
-            this.customerName.TabIndex = 17;
+            this.customerName.TabIndex = 9;
             this.customerName.TextChanged += new System.EventHandler(this.customerName_TextChanged);
             // 
             // warningLabel

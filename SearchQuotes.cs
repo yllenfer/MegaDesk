@@ -43,6 +43,8 @@ namespace MegaDesk
                 // Retrieve the selected surface material from the searchBox dropdown
                 Desk.SurfaceMaterial selectedMaterial = (Desk.SurfaceMaterial)searchBox.SelectedItem;
 
+                bool quotesFound = false; // Flag to track if any quotes are found
+
                 foreach (JObject quote in quotes)
                 {
                     // Retrieve quote data
@@ -55,21 +57,23 @@ namespace MegaDesk
                     int basePrice = int.Parse(quote.SelectToken("Desk.Base").ToString());
                     int numDrawersTwo = int.Parse(quote.SelectToken("Desk.Drawers").ToString());
                     int surfaceMaterialValue = int.Parse(quote.SelectToken("SurfaceMaterial").ToString());
-                    //Add base Price
-                    //int babse - int.Parse(quote.)
                     Desk.SurfaceMaterial surfaceMaterial = (Desk.SurfaceMaterial)surfaceMaterialValue;
 
-                    
                     if (surfaceMaterial == selectedMaterial)
                     {
-                     
+                        quotesFound = true; // At least one quote is found
+
                         string surfaceMaterialString = surfaceMaterial.ToString();
 
-                       
-                        string displayString = string.Format("{0} - {1}: {2}\" x {3}\", {4} drawers, ${5:N2}, Material: {6}",
-                                                customerName, quoteDate, width, depth, numDrawers, basePrice + (numDrawers * 50) + (int)surfaceMaterial, surfaceMaterialString);
+                        string displayString = string.Format("{0} - {1}: {2}\" x {3}\", {4} drawers, ${5:N2}, Total Quote: ${6:N2}",
+                     customerName, quoteDate, width, depth, numDrawers, quote);
                         deskQuotesListBox.Items.Add(displayString);
                     }
+                }
+
+                if (!quotesFound)
+                {
+                    deskQuotesListBox.Items.Add("No quotes found with the selected material.");
                 }
             }
             catch (Exception ex)
@@ -77,6 +81,7 @@ namespace MegaDesk
                 MessageBox.Show($"An error occurred while loading quotes: {ex.Message}\n\n{ex.StackTrace}");
             }
         }
+
 
 
         private void searchBox_SelectedIndexChanged(object sender, EventArgs e)

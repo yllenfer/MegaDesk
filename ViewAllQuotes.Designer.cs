@@ -46,9 +46,9 @@
             // displayQuotesBox
             // 
             this.displayQuotesBox.FormattingEnabled = true;
-            this.displayQuotesBox.Location = new System.Drawing.Point(70, 113);
+            this.displayQuotesBox.Location = new System.Drawing.Point(26, 113);
             this.displayQuotesBox.Name = "displayQuotesBox";
-            this.displayQuotesBox.Size = new System.Drawing.Size(425, 264);
+            this.displayQuotesBox.Size = new System.Drawing.Size(507, 251);
             this.displayQuotesBox.TabIndex = 1;
             // 
             // ViewAllQuotes

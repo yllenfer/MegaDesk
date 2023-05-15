@@ -55,7 +55,7 @@ namespace MegaDesk
                     // Calculate the total quote
                     float totalQuote = basePrice + (numDrawers * 50) + int.Parse(surfaceMaterial);
 
-                    string displayString = string.Format("{0} - {1}: {2}\" x {3}\", {4} drawers, ${5:N2}, Total Quote: ${6:N2}",
+                    string displayString = string.Format("{0} - {1}: {2}\" x {3}\", {4} drawers, ${5:N2}",
                         customerName, quoteDate, width, depth, numDrawers, totalQuote, quote);
 
                     displayQuotesBox.Items.Add(displayString);
