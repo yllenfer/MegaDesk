@@ -43,7 +43,6 @@ namespace MegaDesk
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.backButton = new System.Windows.Forms.Button();
             this.widthTextBox = new System.Windows.Forms.TextBox();
             this.depthTextBox = new System.Windows.Forms.TextBox();
             this.drawersInput = new System.Windows.Forms.TextBox();
@@ -117,17 +116,6 @@ namespace MegaDesk
             this.label7.TabIndex = 6;
             this.label7.Text = "Rush Order";
             // 
-            // backButton
-            // 
-            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.Location = new System.Drawing.Point(12, 12);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(76, 44);
-            this.backButton.TabIndex = 7;
-            this.backButton.Text = "<";
-            this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.goback_Click);
-            // 
             // widthTextBox
             // 
             this.widthTextBox.Location = new System.Drawing.Point(386, 130);
@@ -187,6 +175,7 @@ namespace MegaDesk
             this.rushOrderInput.Name = "rushOrderInput";
             this.rushOrderInput.Size = new System.Drawing.Size(100, 21);
             this.rushOrderInput.TabIndex = 16;
+            this.rushOrderInput.SelectedIndexChanged += new System.EventHandler(this.rushOrderInput_SelectedIndexChanged);
             // 
             // customerName
             // 
@@ -194,6 +183,7 @@ namespace MegaDesk
             this.customerName.Name = "customerName";
             this.customerName.Size = new System.Drawing.Size(100, 20);
             this.customerName.TabIndex = 17;
+            this.customerName.TextChanged += new System.EventHandler(this.customerName_TextChanged);
             // 
             // warningLabel
             // 
@@ -217,7 +207,6 @@ namespace MegaDesk
             this.Controls.Add(this.drawersInput);
             this.Controls.Add(this.depthTextBox);
             this.Controls.Add(this.widthTextBox);
-            this.Controls.Add(this.backButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -244,7 +233,6 @@ namespace MegaDesk
             private System.Windows.Forms.Label label4;
             private System.Windows.Forms.Label label5;
             private System.Windows.Forms.Label label7;
-            private System.Windows.Forms.Button backButton;
 
 
       

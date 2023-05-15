@@ -27,6 +27,8 @@ namespace MegaDesk
             rushOrderInput.Items.Add("5");
             rushOrderInput.Items.Add("7");
             rushOrderInput.Items.Add("14");
+            this.FormClosing += AddQuote_FormClosing;
+
 
 
 
@@ -34,7 +36,28 @@ namespace MegaDesk
         }
 
         private void submitButton_Click(object sender, EventArgs e)
+
+
         {
+            if (string.IsNullOrWhiteSpace(widthTextBox.Text) ||
+                string.IsNullOrWhiteSpace(depthTextBox.Text) ||
+                string.IsNullOrWhiteSpace(drawersInput.Text) ||
+                string.IsNullOrWhiteSpace(customerName.Text) ||
+                surfaceInput.SelectedItem == null ||
+                rushOrderInput.SelectedItem == null)
+            {
+                warningLabel.Text = "Please fill in all the required fields.";
+                warningLabel.Visible = true;
+                return; 
+            }
+
+
+            
+
+            warningLabel.Visible = false;
+
+
+
             int width = int.Parse(widthTextBox.Text);
             int depth = int.Parse(depthTextBox.Text);
             int drawers = int.Parse(drawersInput.Text);
@@ -72,24 +95,28 @@ namespace MegaDesk
 
             try
             {
+                string filePath = @"C:\Users\Yllen Fernandez\source\Repos\MegaDesk\quotes.json";
+
+                
+                string fileJsonData = System.IO.File.ReadAllText(filePath);
+
+                
+                var quotes = JsonConvert.DeserializeObject<List<DeskQuote>>(fileJsonData) ?? new List<DeskQuote>();
+
+                
+                quotes.Add(deskQuote);
+
                
-                string json = JsonConvert.SerializeObject(deskQuoteInfo);
+                string json = JsonConvert.SerializeObject(quotes);
 
-
-                string filePath = Path.Combine(@"C:\Users\Yllen Fernandez\source\Repos\MegaDesk", "quotes.json");
-
-
-
-                using (StreamWriter writer = File.AppendText(filePath))
-                {
-                    writer.WriteLine(json);
-                }
+              
+                System.IO.File.WriteAllText(filePath, json);
             }
             catch (Exception ex)
             {
-                
                 MessageBox.Show($"An error occurred while saving the quote: {ex.Message}");
             }
+
 
 
 
@@ -200,15 +227,7 @@ namespace MegaDesk
 
 
 
-        private void goback_Click(object sender, EventArgs e)
-        {
-
-            Hide();
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.Tag = this;
-            mainMenu.Show(this);
-        }
-
+       
 
 
 
@@ -249,10 +268,39 @@ namespace MegaDesk
             return false;
         }
 
+        private void rushOrderInput_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rushOrderInput.SelectedIndex == -1) 
+            {
+                warningLabel.Text = "Please select a rush material.";
+                warningLabel.Visible = true;
+            }
+            else
+            {
+                warningLabel.Visible = false;
+            }
+        }
 
+        private void customerName_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(customerName.Text) && int.TryParse(customerName.Text, out _))
+            {
+                warningLabel.Text = "Invalid customer name. Please enter a valid name.";
+                warningLabel.Visible = true;
+            }
+            else
+            {
+                warningLabel.Visible = false;
+            }
+        }
 
-
-       
+        private void AddQuote_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
+            e.Cancel = true; 
+            this.Hide(); 
+        }
 
 
 

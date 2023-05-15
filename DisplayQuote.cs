@@ -33,8 +33,10 @@ namespace MegaDesk
                 "\nName: " + deskQuote.Desk.Name +
                 "\nDesktop Material:  " + deskQuote.Desk.Material +
                 "\nRush Order: " + deskQuote.RushOrder +
-                "\nTotal: $" + deskQuote.CalcQuoteTotal() +  
+                "\nTotal: $" + deskQuote.CalcQuoteTotal() +
+                "\nBase: $" + Desk.BASE +
                 "\nDate: " + deskQuote.Date;
+
 
 
             outputlable.Text = quoteDate;

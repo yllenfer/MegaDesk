@@ -22,15 +22,11 @@ namespace MegaDesk
 
             InitializeComponent();
             searchBox.DataSource = Enum.GetValues(typeof(Desk.SurfaceMaterial));
+            searchBox.SelectedIndexChanged += searchBox_SelectedIndexChanged;
+            this.FormClosing += SearchQuote_FormClosing;
 
 
-        }
 
-
-        internal SearchQuotes(DeskQuote deskQuote, float quoteTotal, MainMenu mainMenu, string v)
-        {
-            InitializeComponent();
-            searchBox.DataSource = Enum.GetValues(typeof(Desk.SurfaceMaterial));
         }
 
 
@@ -38,56 +34,73 @@ namespace MegaDesk
         {
             try
             {
-                string filePath = Path.Combine(@"C:\Users\Yllen Fernandez\source\Repos\MegaDesk", "quotes.json");
-
-                // Read all the quotes from the file
+                string filePath = @"C:\Users\Yllen Fernandez\source\Repos\MegaDesk\quotes.json";
                 string json = File.ReadAllText(filePath);
                 JArray quotes = JArray.Parse(json);
 
-                // Get the selected surface material from the ComboBox
-                Desk.SurfaceMaterial selectedMaterial = (Desk.SurfaceMaterial)searchBox.SelectedItem;
-                string selectedSurfaceMaterial = selectedMaterial.ToString();
+                deskQuotesListBox.Items.Clear();
 
-                // Filter the quotes based on the selected surface material
-                List<JObject> filteredQuotes = new List<JObject>();
+                // Retrieve the selected surface material from the searchBox dropdown
+                Desk.SurfaceMaterial selectedMaterial = (Desk.SurfaceMaterial)searchBox.SelectedItem;
+
                 foreach (JObject quote in quotes)
                 {
-                    string material = quote.SelectToken("Desk.Material").ToString();
-                    if (material == selectedSurfaceMaterial)
-                    {
-                        filteredQuotes.Add(quote);
-                    }
-                }
-
-                // Display the filtered quotes in the ListBox
-                deskQuotesListBox.Items.Clear();
-                foreach (JObject quote in filteredQuotes)
-                {
-                    string customerName = quote.SelectToken("Desk.Name").ToString();
+                    // Retrieve quote data
                     string quoteDate = quote.SelectToken("Date").ToString();
+                    string rushOrder = quote.SelectToken("RushOrder").ToString();
+                    int numDrawers = int.Parse(quote.SelectToken("Drawers").ToString());
+                    string customerName = quote.SelectToken("Desk.Name").ToString();
                     int width = int.Parse(quote.SelectToken("Desk.Width").ToString());
                     int depth = int.Parse(quote.SelectToken("Desk.Depth").ToString());
-                    string surfaceMaterial = quote.SelectToken("Desk.Material").ToString();
-                    int numDrawers = int.Parse(quote.SelectToken("Desk.Drawers").ToString());
-                    decimal deskPrice = decimal.Parse(quote.SelectToken("DeskQuote.Desk.Price").ToString());
-                    float totalPrice = float.Parse(quote.SelectToken("QuoteTotal").ToString());
+                    int basePrice = int.Parse(quote.SelectToken("Desk.Base").ToString());
+                    int numDrawersTwo = int.Parse(quote.SelectToken("Desk.Drawers").ToString());
+                    int surfaceMaterialValue = int.Parse(quote.SelectToken("SurfaceMaterial").ToString());
+                    //Add base Price
+                    //int babse - int.Parse(quote.)
+                    Desk.SurfaceMaterial surfaceMaterial = (Desk.SurfaceMaterial)surfaceMaterialValue;
 
-                    deskQuotesListBox.Items.Add(string.Format("{0} - {1}: {2}\" x {3}\", {4} drawers, ${5:N2} (Total: ${6:N2})",
-                        customerName, quoteDate, width, depth, numDrawers, deskPrice, totalPrice));
+                    
+                    if (surfaceMaterial == selectedMaterial)
+                    {
+                     
+                        string surfaceMaterialString = surfaceMaterial.ToString();
+
+                       
+                        string displayString = string.Format("{0} - {1}: {2}\" x {3}\", {4} drawers, ${5:N2}, Material: {6}",
+                                                customerName, quoteDate, width, depth, numDrawers, basePrice + (numDrawers * 50) + (int)surfaceMaterial, surfaceMaterialString);
+                        deskQuotesListBox.Items.Add(displayString);
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while searching for quotes: {ex.Message}");
+                MessageBox.Show($"An error occurred while loading quotes: {ex.Message}\n\n{ex.StackTrace}");
             }
         }
 
+
+        private void searchBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Desk.SurfaceMaterial selectedMaterial = (Desk.SurfaceMaterial)searchBox.SelectedItem;
+            string selectedMaterialString = selectedMaterial.ToString();
+            deskQuotesListBox.Text = "Selected Material: " + selectedMaterialString;
+        }
+
+
+
+        private void SearchQuote_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
+        }
 
 
 
     }
 
-
-
 }
+
+
+
+
 

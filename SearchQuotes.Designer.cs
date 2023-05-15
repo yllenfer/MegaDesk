@@ -56,9 +56,9 @@
             // deskQuotesListBox
             // 
             this.deskQuotesListBox.FormattingEnabled = true;
-            this.deskQuotesListBox.Location = new System.Drawing.Point(115, 205);
+            this.deskQuotesListBox.Location = new System.Drawing.Point(49, 192);
             this.deskQuotesListBox.Name = "deskQuotesListBox";
-            this.deskQuotesListBox.Size = new System.Drawing.Size(365, 199);
+            this.deskQuotesListBox.Size = new System.Drawing.Size(484, 212);
             this.deskQuotesListBox.TabIndex = 2;
             // 
             // SearchQuotes
@@ -70,6 +70,8 @@
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SearchQuotes";
             this.Text = "Search Quotes";
             this.ResumeLayout(false);

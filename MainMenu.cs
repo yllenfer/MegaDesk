@@ -15,8 +15,6 @@ namespace MegaDesk
         public MainMenu()
         {
             InitializeComponent();
-
-
         }
 
         private void addquote_Click(object sender, EventArgs e)
@@ -27,12 +25,13 @@ namespace MegaDesk
             Hide();
         }
 
-
         private void displayquote_Click(object sender, EventArgs e)
         {
+            ViewAllQuotes viewAllQuotes = new ViewAllQuotes();
+            viewAllQuotes.Tag = this;
+            viewAllQuotes.Show(this);
             Hide();
         }
-
 
         private void displaysearch_Click(object sender, EventArgs e)
         {
@@ -42,14 +41,11 @@ namespace MegaDesk
             Hide();
         }
 
-
         private void exit_Click(object sender, EventArgs e)
         {
+            this.Close();
 
-            Hide();
-
+            Application.Exit(); // Terminate the application
         }
-
-
     }
 }

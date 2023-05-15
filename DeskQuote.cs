@@ -40,7 +40,7 @@ namespace MegaDesk
 
         public float CalcQuoteTotal()
         {
-            float basePrice = 200.0f;
+            //float basePrice = 200.0f;
             float areaCost = 0.0f;
             float drawersCost = Drawers * 50.0f;
             float surfaceMaterialCost = 0.0f;
@@ -128,7 +128,7 @@ namespace MegaDesk
             }
 
             // Calculate the total cost
-            float quoteTotal = basePrice + areaCost + drawersCost + surfaceMaterialCost + rushOrderCost;
+            float quoteTotal = Desk.BASE + areaCost + drawersCost + surfaceMaterialCost + rushOrderCost;
             return quoteTotal;
         }
     }
