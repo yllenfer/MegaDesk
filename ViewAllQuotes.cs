@@ -40,7 +40,7 @@ namespace MegaDesk
 
                 foreach (JObject quote in quotes)
                 {
-                    
+                    // Retrieve quote data
                     string quoteDate = quote.SelectToken("Date").ToString();
                     string rushOrder = quote.SelectToken("RushOrder").ToString();
                     int numDrawers = int.Parse(quote.SelectToken("Drawers").ToString());
@@ -52,11 +52,11 @@ namespace MegaDesk
                     int numDrawersTwo = int.Parse(quote.SelectToken("Desk.Drawers").ToString());
                     string surfMaterial = quote.SelectToken("Desk.Material").ToString();
 
-                   
+                    // Calculate the total quote
                     float totalQuote = basePrice + (numDrawers * 50) + int.Parse(surfaceMaterial);
 
                     string displayString = string.Format("{0} - {1}: {2}\" x {3}\", {4} drawers, ${5:N2}, Total Quote: ${6:N2}",
-                        customerName, quoteDate, width, depth, numDrawers, totalQuote);
+                        customerName, quoteDate, width, depth, numDrawers, totalQuote, quote);
 
                     displayQuotesBox.Items.Add(displayString);
                 }
@@ -69,8 +69,3 @@ namespace MegaDesk
 
     }
 }
-
-
-/*TODO: I might need to delete all the values from the json file in order to add the base and the total calculation that comes
-from the DeskQuote class because it is only diplaying the number value for drawers
-*/
