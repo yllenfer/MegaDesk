@@ -65,7 +65,7 @@ namespace MegaDesk
 
                         string surfaceMaterialString = surfaceMaterial.ToString();
 
-                        string displayString = string.Format("{0} - {1}: {2}\" x {3}\", {4} drawers, ${5:N2}, Total Quote: ${6:N2}",
+                        string displayString = string.Format("{0} - {1}: {2}\" x {3}\", {4} drawers",
                      customerName, quoteDate, width, depth, numDrawers, quote);
                         deskQuotesListBox.Items.Add(displayString);
                     }
