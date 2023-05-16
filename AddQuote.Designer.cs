@@ -60,7 +60,7 @@ namespace MegaDesk
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 90);
+            this.label1.Location = new System.Drawing.Point(113, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 18);
             this.label1.TabIndex = 0;
@@ -70,7 +70,7 @@ namespace MegaDesk
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(31, 135);
+            this.label2.Location = new System.Drawing.Point(114, 129);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 18);
             this.label2.TabIndex = 1;
@@ -80,7 +80,7 @@ namespace MegaDesk
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(30, 182);
+            this.label3.Location = new System.Drawing.Point(113, 176);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 18);
             this.label3.TabIndex = 2;
@@ -90,7 +90,7 @@ namespace MegaDesk
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(30, 232);
+            this.label4.Location = new System.Drawing.Point(113, 226);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(138, 18);
             this.label4.TabIndex = 3;
@@ -100,7 +100,7 @@ namespace MegaDesk
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(30, 284);
+            this.label5.Location = new System.Drawing.Point(113, 278);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 18);
             this.label5.TabIndex = 4;
@@ -110,7 +110,7 @@ namespace MegaDesk
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(30, 332);
+            this.label7.Location = new System.Drawing.Point(113, 326);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 18);
             this.label7.TabIndex = 6;
@@ -118,28 +118,31 @@ namespace MegaDesk
             // 
             // widthTextBox
             // 
-            this.widthTextBox.Location = new System.Drawing.Point(386, 130);
+            this.widthTextBox.Location = new System.Drawing.Point(462, 130);
             this.widthTextBox.Name = "widthTextBox";
-            this.widthTextBox.Size = new System.Drawing.Size(100, 20);
+            this.widthTextBox.Size = new System.Drawing.Size(143, 20);
             this.widthTextBox.TabIndex = 10;
+            this.widthTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.widthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.widthTextBox_Validating);
             this.widthTextBox.Validated += new System.EventHandler(this.widthTextBox_Validated);
             // 
             // depthTextBox
             // 
-            this.depthTextBox.Location = new System.Drawing.Point(386, 177);
+            this.depthTextBox.Location = new System.Drawing.Point(462, 177);
             this.depthTextBox.Name = "depthTextBox";
-            this.depthTextBox.Size = new System.Drawing.Size(100, 20);
+            this.depthTextBox.Size = new System.Drawing.Size(143, 20);
             this.depthTextBox.TabIndex = 11;
+            this.depthTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.depthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.depthTextBox_Validating);
             this.depthTextBox.Validated += new System.EventHandler(this.depthTextBox_Validated);
             // 
             // drawersInput
             // 
-            this.drawersInput.Location = new System.Drawing.Point(386, 227);
+            this.drawersInput.Location = new System.Drawing.Point(462, 227);
             this.drawersInput.Name = "drawersInput";
-            this.drawersInput.Size = new System.Drawing.Size(100, 20);
+            this.drawersInput.Size = new System.Drawing.Size(143, 20);
             this.drawersInput.TabIndex = 12;
+            this.drawersInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.drawersInput.Validating += new System.ComponentModel.CancelEventHandler(this.drawersInput_Validating);
             this.drawersInput.Validated += new System.EventHandler(this.drawersInput_Validated);
             // 
@@ -147,9 +150,9 @@ namespace MegaDesk
             // 
             this.surfaceInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.surfaceInput.FormattingEnabled = true;
-            this.surfaceInput.Location = new System.Drawing.Point(386, 278);
+            this.surfaceInput.Location = new System.Drawing.Point(462, 278);
             this.surfaceInput.Name = "surfaceInput";
-            this.surfaceInput.Size = new System.Drawing.Size(100, 21);
+            this.surfaceInput.Size = new System.Drawing.Size(143, 21);
             this.surfaceInput.TabIndex = 13;
             this.surfaceInput.Click += new System.EventHandler(this.AddQuote_Load);
             // 
@@ -159,7 +162,7 @@ namespace MegaDesk
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(202, 363);
+            this.submitButton.Location = new System.Drawing.Point(265, 373);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(149, 48);
             this.submitButton.TabIndex = 15;
@@ -171,18 +174,19 @@ namespace MegaDesk
             // 
             this.rushOrderInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.rushOrderInput.FormattingEnabled = true;
-            this.rushOrderInput.Location = new System.Drawing.Point(386, 326);
+            this.rushOrderInput.Location = new System.Drawing.Point(462, 326);
             this.rushOrderInput.Name = "rushOrderInput";
-            this.rushOrderInput.Size = new System.Drawing.Size(100, 21);
+            this.rushOrderInput.Size = new System.Drawing.Size(143, 21);
             this.rushOrderInput.TabIndex = 16;
             this.rushOrderInput.SelectedIndexChanged += new System.EventHandler(this.rushOrderInput_SelectedIndexChanged);
             // 
             // customerName
             // 
-            this.customerName.Location = new System.Drawing.Point(386, 88);
+            this.customerName.Location = new System.Drawing.Point(462, 88);
             this.customerName.Name = "customerName";
-            this.customerName.Size = new System.Drawing.Size(100, 20);
+            this.customerName.Size = new System.Drawing.Size(143, 20);
             this.customerName.TabIndex = 9;
+            this.customerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.customerName.TextChanged += new System.EventHandler(this.customerName_TextChanged);
             // 
             // warningLabel
@@ -198,7 +202,7 @@ namespace MegaDesk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 423);
+            this.ClientSize = new System.Drawing.Size(688, 444);
             this.Controls.Add(this.warningLabel);
             this.Controls.Add(this.customerName);
             this.Controls.Add(this.rushOrderInput);

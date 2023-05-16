@@ -63,11 +63,11 @@ namespace MegaDesk
             int drawers = int.Parse(drawersInput.Text);
             string name = customerName.Text;
             Desk.SurfaceMaterial surfaceMaterial = (Desk.SurfaceMaterial)surfaceInput.SelectedItem;
-            //Change to combobox
+        
             string rushOrder = (string)rushOrderInput.SelectedItem;
             string date = DateTime.Now.ToString("MMMM/dd/yyyy");
 
-            //MessageBox.Show(addQuote.Depth.ToString());
+            
 
             Desk desk = new Desk
             {
@@ -140,7 +140,7 @@ namespace MegaDesk
                 e.Cancel = true;
                 drawersInput.Select(0, drawersInput.Text.Length);
 
-                // display error message in label
+             
                 warningLabel.Text = errorMsg;
                 warningLabel.Visible = true;
             }
@@ -148,7 +148,7 @@ namespace MegaDesk
 
         private void drawersInput_Validated(object sender, EventArgs e)
         {
-            // hide error message label
+           
             warningLabel.Visible = false;
         }
 
@@ -189,7 +189,7 @@ namespace MegaDesk
 
         private void depthTextBox_Validated(object sender, EventArgs e)
         {
-            // hide error message label
+           
             warningLabel.Visible = false;
         }
 
@@ -215,7 +215,7 @@ namespace MegaDesk
 
 
 
-        //Getting the surface materials from Enum
+        
         private void AddQuote_Load(object sender, EventArgs e)
         {
             
@@ -238,7 +238,7 @@ namespace MegaDesk
                 e.Cancel = true;
                 widthTextBox.Select(0, widthTextBox.Text.Length);
 
-                // display error message in label
+           
                 warningLabel.Text = errorMsg;
                 warningLabel.Visible = true;
             }
@@ -246,7 +246,7 @@ namespace MegaDesk
 
         private void widthTextBox_Validated(object sender, EventArgs e)
         {
-            // hide error message label
+            
             warningLabel.Visible = false;
         }
 

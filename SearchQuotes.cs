@@ -43,7 +43,7 @@ namespace MegaDesk
                 // Retrieve the selected surface material from the searchBox dropdown
                 Desk.SurfaceMaterial selectedMaterial = (Desk.SurfaceMaterial)searchBox.SelectedItem;
 
-                bool quotesFound = false; // Flag to track if any quotes are found
+                bool quotesFound = false; 
 
                 foreach (JObject quote in quotes)
                 {

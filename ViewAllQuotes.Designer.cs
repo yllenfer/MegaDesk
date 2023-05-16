@@ -37,7 +37,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(221, 71);
+            this.label1.Location = new System.Drawing.Point(289, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 25);
             this.label1.TabIndex = 0;
@@ -45,17 +45,19 @@
             // 
             // displayQuotesBox
             // 
+            this.displayQuotesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayQuotesBox.FormattingEnabled = true;
-            this.displayQuotesBox.Location = new System.Drawing.Point(26, 113);
+            this.displayQuotesBox.ItemHeight = 15;
+            this.displayQuotesBox.Location = new System.Drawing.Point(99, 125);
             this.displayQuotesBox.Name = "displayQuotesBox";
-            this.displayQuotesBox.Size = new System.Drawing.Size(507, 251);
+            this.displayQuotesBox.Size = new System.Drawing.Size(507, 244);
             this.displayQuotesBox.TabIndex = 1;
             // 
             // ViewAllQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 425);
+            this.ClientSize = new System.Drawing.Size(692, 448);
             this.Controls.Add(this.displayQuotesBox);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

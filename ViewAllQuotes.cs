@@ -18,15 +18,13 @@ namespace MegaDesk
         {
             InitializeComponent();
             Shown += ViewAllQuotes_Shown;
+            this.FormClosing += ViewAllQuotes_Load;
         }
-
 
         private void ViewAllQuotes_Shown(object sender, EventArgs e)
         {
             ViewAllQuotes_Load();
         }
-
-
 
         private void ViewAllQuotes_Load()
         {
@@ -40,26 +38,23 @@ namespace MegaDesk
 
                 foreach (JObject quote in quotes)
                 {
-                    // Retrieve quote data
-                    string quoteDate = quote.SelectToken("Date").ToString();
-                    string rushOrder = quote.SelectToken("RushOrder").ToString();
-                    int numDrawers = int.Parse(quote.SelectToken("Drawers").ToString());
-                    string surfaceMaterial = quote.SelectToken("SurfaceMaterial").ToString();
                     string customerName = quote.SelectToken("Desk.Name").ToString();
+                    string quoteDate = quote.SelectToken("Date").ToString();
                     int width = int.Parse(quote.SelectToken("Desk.Width").ToString());
                     int depth = int.Parse(quote.SelectToken("Desk.Depth").ToString());
-                    int basePrice = int.Parse(quote.SelectToken("Desk.Base").ToString());
-                    int numDrawersTwo = int.Parse(quote.SelectToken("Desk.Drawers").ToString());
-                    string surfMaterial = quote.SelectToken("Desk.Material").ToString();
+                    int numDrawers = int.Parse(quote.SelectToken("Drawers").ToString());
+                    string surfaceMaterialValue = quote.SelectToken("Desk.Material").ToString();
 
-                    // Calculate the total quote
-                    float totalQuote = basePrice + (numDrawers * 50) + int.Parse(surfaceMaterial);
+                    Desk.SurfaceMaterial surfaceMaterial = (Desk.SurfaceMaterial)Enum.Parse(typeof(Desk.SurfaceMaterial), surfaceMaterialValue);
 
-                    string displayString = string.Format("{0} - {1}: {2}\" x {3}\", {4} drawers, ${5:N2}",
-                        customerName, quoteDate, width, depth, numDrawers, totalQuote, quote);
+                    string surfaceMaterialName = surfaceMaterial.ToString();
+
+                    string displayString = string.Format("{0} - {1}: {2}\" x {3}\", {4} drawers, Material: {5}",
+                        customerName, quoteDate, width, depth, numDrawers, surfaceMaterialName);
 
                     displayQuotesBox.Items.Add(displayString);
                 }
+
             }
             catch (Exception ex)
             {
@@ -67,5 +62,14 @@ namespace MegaDesk
             }
         }
 
+        
+
+        private void ViewAllQuotes_Load(object sender, FormClosingEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
+            e.Cancel = true;
+            this.Hide();
+        }
     }
 }

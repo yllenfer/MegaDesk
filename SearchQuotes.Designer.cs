@@ -38,7 +38,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(231, 80);
+            this.label1.Location = new System.Drawing.Point(287, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 25);
             this.label1.TabIndex = 0;
@@ -46,26 +46,30 @@
             // 
             // searchBox
             // 
+            this.searchBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.searchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBox.FormattingEnabled = true;
-            this.searchBox.Location = new System.Drawing.Point(208, 152);
+            this.searchBox.Location = new System.Drawing.Point(236, 153);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(196, 21);
+            this.searchBox.Size = new System.Drawing.Size(249, 23);
             this.searchBox.TabIndex = 1;
             this.searchBox.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // deskQuotesListBox
             // 
+            this.deskQuotesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deskQuotesListBox.FormattingEnabled = true;
-            this.deskQuotesListBox.Location = new System.Drawing.Point(49, 192);
+            this.deskQuotesListBox.ItemHeight = 15;
+            this.deskQuotesListBox.Location = new System.Drawing.Point(116, 194);
             this.deskQuotesListBox.Name = "deskQuotesListBox";
-            this.deskQuotesListBox.Size = new System.Drawing.Size(484, 212);
+            this.deskQuotesListBox.Size = new System.Drawing.Size(484, 199);
             this.deskQuotesListBox.TabIndex = 2;
             // 
             // SearchQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 454);
+            this.ClientSize = new System.Drawing.Size(692, 448);
             this.Controls.Add(this.deskQuotesListBox);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.label1);
