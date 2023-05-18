@@ -125,6 +125,7 @@
     <None Include="quotes.json" />
     <None Include="Resources\delete.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="bin\Debug\rushOrderPrices.txt" />
   </ItemGroup>

@@ -181,7 +181,7 @@ namespace MegaDesk
                 e.Cancel = true;
                 depthTextBox.Select(0, depthTextBox.Text.Length);
 
-                // display error message in label
+              
                 warningLabel.Text = errorMsg;
                 warningLabel.Visible = true;
             }

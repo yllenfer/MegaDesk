@@ -10,15 +10,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Windows.Forms;
+
 namespace MegaDesk
 {
     public partial class ViewAllQuotes : Form
+        
     {
+        private DataGridView dataGridView;
         public ViewAllQuotes()
         {
             InitializeComponent();
             Shown += ViewAllQuotes_Shown;
-            this.FormClosing += ViewAllQuotes_Load;
+            this.FormClosing += ViewAllQuotes_FormClosing;
+            dataGridView = new DataGridView(); // Add this line
+            Controls.Add(dataGridView); // Add this line
         }
 
         private void ViewAllQuotes_Shown(object sender, EventArgs e)
@@ -34,7 +40,15 @@ namespace MegaDesk
                 string json = File.ReadAllText(filePath);
                 JArray quotes = JArray.Parse(json);
 
-                displayQuotesBox.Items.Clear();
+                DataTable dataTable = new DataTable();
+
+                // Add columns to the DataTable
+                dataTable.Columns.Add("Customer Name");
+                dataTable.Columns.Add("Quote Date");
+                dataTable.Columns.Add("Width");
+                dataTable.Columns.Add("Depth");
+                dataTable.Columns.Add("Num Drawers");
+                dataTable.Columns.Add("Surface Material");
 
                 foreach (JObject quote in quotes)
                 {
@@ -49,12 +63,12 @@ namespace MegaDesk
 
                     string surfaceMaterialName = surfaceMaterial.ToString();
 
-                    string displayString = string.Format("{0} - {1}: {2}\" x {3}\", {4} drawers, Material: {5}",
-                        customerName, quoteDate, width, depth, numDrawers, surfaceMaterialName);
-
-                    displayQuotesBox.Items.Add(displayString);
+                    // Add a new row to the DataTable
+                    dataTable.Rows.Add(customerName, quoteDate, width, depth, numDrawers, surfaceMaterialName);
                 }
 
+                // Set the DataGridView's DataSource to the DataTable
+                dataGridView.DataSource = dataTable;
             }
             catch (Exception ex)
             {
@@ -62,14 +76,10 @@ namespace MegaDesk
             }
         }
 
-        
-
-        private void ViewAllQuotes_Load(object sender, FormClosingEventArgs e)
+        private void ViewAllQuotes_FormClosing(object sender, FormClosingEventArgs e)
         {
             MainMenu mainMenu = new MainMenu();
             mainMenu.Show();
-            e.Cancel = true;
-            this.Hide();
         }
     }
 }
