@@ -1,7 +1,7 @@
 # MegaDesk
 Team project.
 Participants:
-**Yllen Fernandez**
+**Yllen Fernandez** -
 **Julieta White**
 
 The projecct is a desktop application that determines desk prices quotes for the custom desk order. 
