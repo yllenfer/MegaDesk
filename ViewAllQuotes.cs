@@ -9,22 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using System.Windows.Forms;
+
+//TODO: Review this class for changes in DataGridView
 
 namespace MegaDesk
 {
     public partial class ViewAllQuotes : Form
-        
     {
-        private DataGridView dataGridView;
         public ViewAllQuotes()
         {
             InitializeComponent();
             Shown += ViewAllQuotes_Shown;
             this.FormClosing += ViewAllQuotes_FormClosing;
-            dataGridView = new DataGridView(); // Add this line
-            Controls.Add(dataGridView); // Add this line
         }
 
         private void ViewAllQuotes_Shown(object sender, EventArgs e)
@@ -42,7 +39,6 @@ namespace MegaDesk
 
                 DataTable dataTable = new DataTable();
 
-                // Add columns to the DataTable
                 dataTable.Columns.Add("Customer Name");
                 dataTable.Columns.Add("Quote Date");
                 dataTable.Columns.Add("Width");
@@ -63,12 +59,11 @@ namespace MegaDesk
 
                     string surfaceMaterialName = surfaceMaterial.ToString();
 
-                    // Add a new row to the DataTable
                     dataTable.Rows.Add(customerName, quoteDate, width, depth, numDrawers, surfaceMaterialName);
                 }
 
-                // Set the DataGridView's DataSource to the DataTable
-                dataGridView.DataSource = dataTable;
+                dataGridView1.DataSource = dataTable; // Set the dataSource to dataGridView1
+
             }
             catch (Exception ex)
             {
@@ -83,3 +78,4 @@ namespace MegaDesk
         }
     }
 }
+

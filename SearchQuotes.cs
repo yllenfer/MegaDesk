@@ -86,9 +86,7 @@ namespace MegaDesk
 
         private void searchBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Desk.SurfaceMaterial selectedMaterial = (Desk.SurfaceMaterial)searchBox.SelectedItem;
-            //string selectedMaterialString = selectedMaterial.ToString();
-            //deskQuotesListBox.Text = "Selected Material: " + selectedMaterialString;
+          
             searchButton_Click(sender, e);
         }
 

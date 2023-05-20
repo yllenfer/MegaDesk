@@ -30,7 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewAllQuotes));
             this.label1 = new System.Windows.Forms.Label();
-            this.displayQuotesBox = new System.Windows.Forms.ListBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -43,26 +44,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "View all Quotes";
             // 
-            // displayQuotesBox
+            // dataGridView1
             // 
-            this.displayQuotesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayQuotesBox.FormattingEnabled = true;
-            this.displayQuotesBox.ItemHeight = 15;
-            this.displayQuotesBox.Location = new System.Drawing.Point(99, 125);
-            this.displayQuotesBox.Name = "displayQuotesBox";
-            this.displayQuotesBox.Size = new System.Drawing.Size(507, 244);
-            this.displayQuotesBox.TabIndex = 1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(52, 125);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(600, 242);
+            this.dataGridView1.TabIndex = 1;
             // 
             // ViewAllQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 448);
-            this.Controls.Add(this.displayQuotesBox);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewAllQuotes";
             this.Text = "View All Quotes";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -71,6 +71,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox displayQuotesBox;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
