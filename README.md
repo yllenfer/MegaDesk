@@ -39,5 +39,6 @@ MegaDesk is a fictitious, small company that makes custom desks to order within 
 + Store the desk quotes in an appended JSON file named quotes.json
 + Support a solid UX with proper PARC design on the UI.
 
-
+## Video
+[link video MegaDesk2.0] (https://youtu.be/2UWnuJS4Dvg)
 
