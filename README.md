@@ -2,7 +2,7 @@
 Team project.
 Participants:
 **Yllen Fernandez** -
-**Julieta White**
+
 
 The projecct is a desktop application that determines desk prices quotes for the custom desk order. 
 The goal of this project is to digitize and automate the method of taking and storing desk quotes. 
